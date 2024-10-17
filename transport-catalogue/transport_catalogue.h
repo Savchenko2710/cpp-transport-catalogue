@@ -31,7 +31,6 @@ struct RouteInfo {
 
 class TransportCatalogue {
 public:
-    // Public interface
     void AddRoute(const std::string& route_number, const std::vector<std::string>& route_stops, bool circular_route);
     void AddStop(const std::string& stop_name, Coordinates& coordinates);
     const Bus* FindRoute(const std::string& route_number) const;
@@ -39,11 +38,9 @@ public:
     const RouteInfo RouteInformation(const std::string& route_number) const;
 
 private:
-    // Internal utility functions, not exposed to public interface
     size_t UniqueStopsCount(const std::string& route_number) const;
     const std::set<std::string>& GetBusesOnStop(const std::string& stop_name) const;
 
-    // Member data
     std::deque<Bus> all_buses_;
     std::deque<Stop> all_stops_;
     std::unordered_map<std::string_view, const Bus*> busname_to_bus_;

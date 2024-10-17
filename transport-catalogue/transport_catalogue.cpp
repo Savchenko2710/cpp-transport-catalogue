@@ -17,13 +17,11 @@ void TransportCatalogue::AddStop(const std::string& stop_name, Coordinates& coor
     stopname_to_stop_[all_stops_.back().name] = &all_stops_.back();
 }
 
-// Use std::string_view to avoid string copying
 const Bus* TransportCatalogue::FindRoute(std::string_view route_number) const {
     auto it = busname_to_bus_.find(route_number);
     return (it != busname_to_bus_.end()) ? it->second : nullptr;
 }
 
-// Use std::string_view to avoid string copying
 const Stop* TransportCatalogue::FindStop(std::string_view stop_name) const {
     auto it = stopname_to_stop_.find(stop_name);
     return (it != stopname_to_stop_.end()) ? it->second : nullptr;
@@ -68,7 +66,6 @@ size_t TransportCatalogue::UniqueStopsCount(std::string_view route_number) const
     return unique_stops.size();
 }
 
-// Return a constant reference to avoid copying the set of buses
 const std::set<std::string>& TransportCatalogue::GetBusesOnStop(std::string_view stop_name) const {
     return stopname_to_stop_.at(stop_name)->buses;
 }

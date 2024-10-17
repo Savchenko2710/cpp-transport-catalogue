@@ -10,7 +10,7 @@ void ProcessRequests(std::ostream& out, TransportCatalogue& catalogue) {
         std::getline(std::cin, line);
         
         if (keyword == "Bus") {
-            std::string route_number = line.substr(1); // Extract the bus number
+            std::string route_number = line.substr(1); 
             const auto* route_info = catalogue.FindRoute(route_number);
             if (route_info) {
                 const auto& info = catalogue.RouteInformation(route_number);
@@ -24,7 +24,7 @@ void ProcessRequests(std::ostream& out, TransportCatalogue& catalogue) {
         }
 
         if (keyword == "Stop") {
-            std::string stop_name = line.substr(1); // Extract the stop name
+            std::string stop_name = line.substr(1);
             const auto* stop_info = catalogue.FindStop(stop_name);
             if (stop_info) {
                 out << "Stop " << stop_name << ": ";
