@@ -2,6 +2,11 @@
 
 #include "transport_catalogue.h"
 
-#include <iostream>
+namespace transport {
 
-void ProcessRequests(std::ostream& out, TransportCatalogue& catalogue);
+void ProcessRequests(std::istream& in, Catalogue& catalogue, std::ostream& out);
+
+void PrintRoute(std::string& line, Catalogue& catalogue, std::ostream& out);
+void PrintStop(std::string& line, Catalogue& catalogue, std::ostream& out);
+
+}

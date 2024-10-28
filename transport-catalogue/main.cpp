@@ -1,8 +1,10 @@
-#include "stat_reader.h"
 #include "input_reader.h"
+#include "stat_reader.h"
+
+using namespace transport;
 
 int main() {
-    TransportCatalogue catalogue;
-    FillTransportCatalogue(std::cin, catalogue);
-    ProcessRequests(std::cout, catalogue);
+    Catalogue catalogue;
+    FillCatalogue(std::cin, catalogue);
+    ProcessRequests(std::cin, catalogue, std::cout);
 }
